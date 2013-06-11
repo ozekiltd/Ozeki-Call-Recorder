@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D0683331-6F5E-42A0-8E2D-D605881215C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CallRecorder</RootNamespace>
+    <AssemblyName>CallRecorder</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OPSSDK">
+      <HintPath>..\..\..\..\Common\OzCommon\Resources\OPSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\ConnectorContext.cs" />
+    <Compile Include="Model\IOPSClient.cs" />
+    <Compile Include="Model\LoginResult.cs" />
+    <Compile Include="Model\LoginState.cs" />
+    <Compile Include="Model\MyCallParty.cs" />
+    <Compile Include="Model\ProgramSettings.cs" />
+    <Compile Include="Model\RealClient.cs" />
+    <Compile Include="Model\RecordingContext.cs" />
+    <Compile Include="Presenter\ConnectToServerPresenter.cs" />
+    <Compile Include="Presenter\MainWindowPresenter.cs" />
+    <Compile Include="Model\SettingsHelper.cs" />
+    <Compile Include="Presenter\OptionsWindowPresenter.cs" />
+    <Compile Include="Util\ConfirmBox.cs" />
+    <Compile Include="Util\Constants.cs" />
+    <Compile Include="Util\Delegates.cs" />
+    <Compile Include="Util\ErrorBox.cs" />
+    <Compile Include="Util\InfoBox.cs" />
+    <Compile Include="Model\RecordingFileFormat.cs" />
+    <Compile Include="Util\SimpleIOCContainer.cs" />
+    <Compile Include="View\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BaseWindow.Designer.cs">
+      <DependentUpon>BaseWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConnectToServerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConnectToServerWindow.Designer.cs">
+      <DependentUpon>ConnectToServerWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\ExtendedListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\IBaseView.cs" />
+    <Compile Include="View\IConnectToServer.cs" />
+    <Compile Include="View\IMainWindow.cs" />
+    <Compile Include="View\IOptionsWindow.cs" />
+    <Compile Include="View\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\OptionsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\OptionsWindow.Designer.cs">
+      <DependentUpon>OptionsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\WaitWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WaitWindow.Designer.cs">
+      <DependentUpon>WaitWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConnectToServerWindow.resx">
+      <DependentUpon>ConnectToServerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\OptionsWindow.resx">
+      <DependentUpon>OptionsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Common\OzCommon\OzCommon.csproj">
+      <Project>{421e2b8b-9427-4b84-b7d3-c46469f83333}</Project>
+      <Name>OzCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
