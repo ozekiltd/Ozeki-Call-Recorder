@@ -34,5 +34,5 @@ More information:
 - FAQ: http://www.ozekiphone.com/index.php?owpn=672
 - Product video: http://www.ozekiphone.com/index.php?owpn=681
 - For developers: http://www.ozekiphone.com/index.php?owpn=682
-- Installer: http://www.ozekiphone.com/examples/OPSIVR.zip
-- Source code: http://www.ozekiphone.com/examples/OPSIVR_source.zip
+- Installer: http://www.ozekiphone.com/examples/OPSCallRecorder.zip
+- Source code: http://www.ozekiphone.com/examples/OPSCallRecorder_source.zip
